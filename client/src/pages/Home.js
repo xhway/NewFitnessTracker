@@ -1,37 +1,28 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
 
-import ThoughtList from '../components/ThoughtList';
-import ThoughtForm from '../components/ThoughtForm';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Auth from "../utils/auth"
+import Container from "react-bootstrap/Container";
+import Header from "../components/Header";
 
-import { QUERY_THOUGHTS } from '../utils/queries';
-
-const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
+export default function Home() {
+  const navigate = useNavigate();
+  const loggedIn = Auth.loggedIn()
 
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <ThoughtForm />
-        </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
-            />
-          )}
-        </div>
-      </div>
-    </main>
+    <div className="homepage">
+      <Header />
+      <Container className="home d-flex flex-column align-items-center justify-content-center flex-wrap text-center">
+        <h1 className="home-title">Your New Workout Partner</h1>
+        <p className="home-text">
+          There's a day for Cardio.
+          There's a day for Resistance training.
+          There's a day for Both! Track your daily excercises with us.
+        </p>
+        {loggedIn ?
+          (<button className="home-btn" onClick={() => navigate("/exercise")}>Add Exercise</button>) :
+          (<button className="home-btn" onClick={() => navigate("/signup")}>Get Started</button>)}
+      </Container>
+    </div>
   );
-};
-
-export default Home;
+}
