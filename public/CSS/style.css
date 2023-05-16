@@ -1,0 +1,63 @@
+body {
+    background-image: url(https://wallpaperaccess.com/full/804852.jpg);
+    background-size: cover;
+}
+
+h1{
+    font: size 40px;
+    color: white;
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+#qoute{  
+    position: absolute;
+    top:20%;
+    color:white;
+    font-size: 40px;
+    font-family: 'Bebas Neue', sans-serif;
+    text-align: left;
+}
+
+#message{
+    position: absolute;
+    bottom:10%;
+    left: 10%;
+    font-size: 58px;
+    color:white;
+    font-family: 'Bebas Neue', sans-serif;
+
+}
+
+img {
+    position:absolute;
+    left: 44%;
+    bottom:83%;
+    width: 200px;
+    height: 200px;
+    
+}
+
+button{
+    position: absolute;
+    left: 17%;
+    bottom: 9%;
+    background-color: #000000;
+    width: 10%;
+    height: 50px;
+    border-radius: 10px 10px;
+    font-size: 22px;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+a{
+   color: rgb(0, 0, 0);
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+}
+
+button,a:hover {
+    color:rgb(255, 0, 0);
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
