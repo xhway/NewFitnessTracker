@@ -4,8 +4,8 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 import Auth from '../utils/auth';
-import { getCardioById, getResistanceById, deleteCardio, deleteResistance } from '../utils/API';
-import { formatDate } from '../utils/dateFormat';
+//import { getCardioById, getResistanceById, deleteCardio, deleteResistance } from '../utils/API';
+//import { formatDate } from '../utils/dateFormat';
 import Header from "./Header";
 //import cardioIcon from "../assets/images/cardio-w.png"
 //import resistanceIcon from "../assets/images/resistance-w.png"
@@ -29,24 +29,24 @@ export default function SingleExercise() {
             // fetch cardio data by id
             if (type === "cardio") {
                 try {
-                    const response = await getCardioById(exerciseId, token);
-                    if (!response.ok) { throw new Error('something went wrong!') }
+                    // const response = await getCardioById(exerciseId, token);
+                    // if (!response.ok) { throw new Error('something went wrong!') }
 
-                    const cardio = await response.json()
-                    cardio.date = formatDate(cardio.date)
-                    setCardioData(cardio)
+                    // const cardio = await response.json()
+                    // cardio.date = formatDate(cardio.date)
+                    // setCardioData(cardio)
                 } catch (err) { console.error(err) }
             }
 
             // fetch resistance data by id
             else if (type === "resistance") {
                 try {
-                    const response = await getResistanceById(exerciseId, token);
-                    if (!response.ok) { throw new Error('something went wrong!') }
+                    // const response = await getResistanceById(exerciseId, token);
+                    // if (!response.ok) { throw new Error('something went wrong!') }
 
-                    const resistance = await response.json()
-                    resistance.date = formatDate(resistance.date)
-                    setResistanceData(resistance)
+                    // const resistance = await response.json()
+                    // resistance.date = formatDate(resistance.date)
+                    // setResistanceData(resistance)
                 } catch (err) { console.error(err) }
             }
         }
@@ -74,8 +74,8 @@ export default function SingleExercise() {
                         // delete cardio data
                         if (type === "cardio") {
                             try {
-                                const response = await deleteCardio(exerciseId, token);
-                                if (!response.ok) { throw new Error('something went wrong!') }
+                                // const response = await deleteCardio(exerciseId, token);
+                                // if (!response.ok) { throw new Error('something went wrong!') }
                             }
                             catch (err) { console.error(err) }
                         }
@@ -83,8 +83,8 @@ export default function SingleExercise() {
                         // delete resistance data
                         else if (type === "resistance") {
                             try {
-                                const response = await deleteResistance(exerciseId, token);
-                                if (!response.ok) { throw new Error('something went wrong!') }
+                                // const response = await deleteResistance(exerciseId, token);
+                                // if (!response.ok) { throw new Error('something went wrong!') }
                             }
                             catch (err) { console.error(err) }
                         }
@@ -103,7 +103,7 @@ export default function SingleExercise() {
             <h2 className='title text-center'>History</h2>
             <div className="single-exercise d-flex flex-column align-items-center text-center">
                 {type === "cardio" && (<div className='cardio-div '>
-                    <div className='d-flex justify-content-center'><img alt="cardio" src={cardioIcon} className="exercise-form-icon" /></div>
+                    {/* <div className='d-flex justify-content-center'><img alt="cardio" src={cardioIcon} className="exercise-form-icon" /></div> */}
                     <p><span>Date: </span> {cardioData.date}</p>
                     <p><span>Name: </span> {cardioData.name}</p>
                     <p><span>Distance: </span> {cardioData.distance} miles</p>
@@ -111,7 +111,7 @@ export default function SingleExercise() {
                     <button className='delete-btn' onClick={() => handleDeleteExercise(id)}>Delete Exercise</button>
                 </div>)}
                 {type === "resistance" && (<div className='resistance-div'>
-                    <div className='d-flex justify-content-center'><img alt="resistance" src={resistanceIcon} className="exercise-form-icon" /></div>
+                    {/* <div className='d-flex justify-content-center'><img alt="resistance" src={resistanceIcon} className="exercise-form-icon" /></div> */}
                     <p><span>Date: </span> {resistanceData.date}</p>
                     <p><span>Name: </span> {resistanceData.name}</p>
                     <p><span>Weight: </span> {resistanceData.weight} lbs</p>

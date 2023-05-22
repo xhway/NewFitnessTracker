@@ -23,13 +23,13 @@ export default function Exercise() {
         <h2 className='title'>Add Exercise</h2>
         <div>
           <button className='cardio-btn d-flex flex-column  align-items-center justify-content-center' onClick={() => navigate("/exercise/cardio")}>
-            <img alt="cardio" src={cardioIcon} className="exercise-icon" />
+            {/* <img alt="cardio" src={cardioIcon} className="exercise-icon" /> */}
             Cardio
           </button>
         </div>
         <div>
           <button className='resistance-btn d-flex flex-column  align-items-center justify-content-center' onClick={() => navigate("/exercise/resistance")}>
-            <img alt="resistance" src={resistanceIcon} className="exercise-icon" />
+            {/* <img alt="resistance" src={resistanceIcon} className="exercise-icon" /> */}
             Resistance
           </button>
         </div>
