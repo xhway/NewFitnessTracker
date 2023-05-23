@@ -17,7 +17,7 @@ export default function Home() {
         <p className="home-text">
           There's a day for Cardio.
           There's a day for Resistance training.
-          There's a day for Both! Track your daily excercises with us.
+          There's a day for Both! CONQUER your daily excercises with us.
         </p>
         {loggedIn ?
           (<button className="home-btn" onClick={() => navigate("/exercise")}>Add Exercise</button>) :

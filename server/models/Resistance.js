@@ -1,3 +1,4 @@
+
 const { Schema, model} = require("mongoose");
 
 const ResistanceSchema = new Schema(
@@ -36,6 +37,9 @@ const ResistanceSchema = new Schema(
     }
   );
   
-  const Resistance = model("Resistance", ResistanceSchema);
-  
-  module.exports = Resistance;
+const Resistance = model("Resistance", ResistanceSchema);
+
+module.exports = Resistance;
+
+
+

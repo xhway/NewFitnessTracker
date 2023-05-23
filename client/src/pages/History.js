@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, Link } from 'react-router-dom';
-//import { getMe } from '../utils/API';
+import { getMe } from '../utils/API';
 import Auth from "../utils/auth"
 //import { formatDate } from '../utils/dateFormat';
 import Header from "../components/Header";
@@ -23,33 +23,33 @@ export default function History() {
         const token = loggedIn ? Auth.getToken() : null;
         if (!token) return false;
 
-        // const response = await getMe(token)
+        const response = await getMe(token)
 
-        // if (!response.ok) {
-        //   throw new Error("something went wrong!")
-        // }
+        if (!response.ok) {
+          throw new Error("something went wrong!")
+        }
 
-        // const user = await response.json()
+        const user = await response.json()
 
-        // combine cardio and resistance data together
-        // if (user.cardio && user.resistance) {
-        //   const cardio = user.cardio;
-        //   const resistance = user.resistance;
-        //   const exercise = cardio.concat(resistance);
+       // combine cardio and resistance data together
+        if (user.cardio && user.resistance) {
+          const cardio = user.cardio;
+          const resistance = user.resistance;
+          const exercise = cardio.concat(resistance);
 
-        //   // sort exercise data by date
-        //   exercise.sort((a, b) => {
-        //     return new Date(b.date) - new Date(a.date)
-        //   })
+          //sort exercise data by date
+          exercise.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date)
+          })
 
-        //   //format date in exercise data
-        // //   exercise.forEach(item => {
-        // //     item.date = formatDate(item.date)
-        // //   });
+          //format date in exercise data
+        //   exercise.forEach(item => {
+        //     item.date = formatDate(item.date)
+        //   });
 
-        //   setUserData(user);
-        //   setExerciseData(exercise)
-       //}
+          setUserData(user);
+          setExerciseData(exercise)
+       }
       } catch (err) { console.error(err) }
     };
     getUserData();
