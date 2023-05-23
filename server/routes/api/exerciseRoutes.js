@@ -10,7 +10,7 @@ const {
     createCardio,
     getCardioById,
     deleteCardio,
-  } = require("../../controllers/cardio-controller");
+  } = require("../../controllers/cardio-controller.js");
   
 
   const { authMiddleware } = require('../../utils/auth');

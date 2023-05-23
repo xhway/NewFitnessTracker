@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Auth from "../utils/auth";
-//import { createCardio } from '../utils/API';
+import { createCardio } from '../utils/API';
 import Header from "./Header";
 
 export default function Cardio() {
@@ -49,11 +49,11 @@ export default function Cardio() {
                 // add userid to cardio form
                 cardioForm.userId = userId;
 
-               // const response = await createCardio(cardioForm, token);
+                const response = await createCardio(cardioForm, token);
 
-                // if (!response.ok) {
-                //     throw new Error('something went wrong!');
-                // }
+                 if (!response.ok) {
+                     throw new Error('something went wrong!');
+                 }
 
                 setMessage("Cardio successfully added!")
                 setTimeout(() => {

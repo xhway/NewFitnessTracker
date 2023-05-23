@@ -24,7 +24,7 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_CADIO = gql`
+export const ADD_CARDIO = gql`
 mutation addCardio($cardioForm: String!) {
   addCardio(cardioForm: $cardioForm) {
     name
