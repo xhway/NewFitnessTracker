@@ -24,33 +24,26 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-      }
-    }
+export const ADD_CADIO = gql`
+mutation addCardio($cardioForm: String!) {
+  addCardio(cardioForm: $cardioForm) {
+    name
+    distance
+    duration
+    date
   }
+}
 `;
 
-export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        createdAt
-      }
-    }
+export const ADD_RESISTANCE = gql`
+mutation addResistance($resistanceForm: String!) {
+  addResistance(rsistanceForm: $resistanceForm) {
+    name
+    weight
+    sets
+    reps
+    date
   }
+}
 `;
+

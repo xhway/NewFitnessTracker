@@ -6,40 +6,26 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-      }
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+export const QUERY_SINGLE_EXERCICE = gql`
+  query getSingleExercice($exerciceId: ID!) {
+    cardio(cardioId: $cardioId) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-    }
-  }
-`;
-
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+        name
+        distance
+        duration
+        date }
+    resistance (resistanceId: $resistanceId){
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
-    }
+      name
+      weight
+      sets
+      reps
+      date
+}
   }
 `;
 
@@ -49,11 +35,20 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
+      cardio {
         _id
-        thoughtText
-        thoughtAuthor
-        createdAt
+        name
+        distance
+        duration
+        date
+      }
+      resistance {
+        _id
+        name
+      weight
+      sets
+      reps
+      date
       }
     }
   }

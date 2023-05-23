@@ -19,10 +19,16 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  thoughts: [
+  cardio: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Thought',
+      ref: 'Cardio',
+    },
+  ],
+  resistance: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Resistance',
     },
   ],
 });
