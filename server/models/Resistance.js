@@ -1,32 +1,45 @@
-const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
 
-const resistanceSchema = new Schema({
-    name: {
-      type: String,
-      required: true,
-    },
-    weight: {
-      type: String,
-      required: true,
-    },
-    date: {
-      type: Date,
-      default: Date.now,
-      get: (timestamp) => dateFormat(timestamp),
-      required: true,
-    },
-    sets: {
-      type: String,
-      required: true,
-    },
-    reps: {
+const { Schema, model} = require("mongoose");
+
+const ResistanceSchema = new Schema(
+    {
+      type: {
         type: String,
-        required: true, 
+        default: "resistance",
+        required: true
+      },
+      name: {
+        type: String,
+        required: true,
+        maxlength: 30
+      },
+      weight: {
+        type: Number,
+        required: true,
+      },
+      sets: {
+        type: Number,
+        required: true,
+      },
+      reps: {
+        type: Number,
+        required: true,
+      },
+      date: {
+        type: Date,
+        required: true,
+      },
+      userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+      },
     }
-        
-  });
+  );
   
-  const Resistance = model('Resistance', resistanceSchema);
-  
-  module.exports = Resistance;
+const Resistance = model("Resistance", ResistanceSchema);
+
+module.exports = Resistance;
+
+
+

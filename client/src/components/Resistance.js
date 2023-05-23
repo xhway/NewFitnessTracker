@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import Auth from "../utils/auth";
-//import { createResistance } from '../utils/API';
+import { createResistance } from '../utils/API';
 import Header from "./Header";
 //import resistanceIcon from "../assets/images/..."
 
@@ -21,15 +21,15 @@ export default function Resistance(){
 
     const handleDateChange = date =>{
         setStartDate(date);
-        // handleResistanceChange({
-        //     target: {name: "date", value:date}
+        handleResistanceChange({
+            target: {name: "date", value:date}
 
-        // })
+        })
     }
-    // consthandleResistanceChange =(event) =>{
-    //     const {name, value} = event.target;
-    //     setResistanceForm({...resistanceForm, [name]: value})
-    // }
+    const handleResistanceChange =(event) =>{
+        const {name, value} = event.target;
+        setResistanceForm({...resistanceForm, [name]: value})
+    }
 
     const validateForm = (form) =>{
         return form.name && form.weight && form.sets && form.reps && form.date;
@@ -48,12 +48,12 @@ export default function Resistance(){
             try{
                 resistanceForm.userId = userId;
 
-                // const response = await createResistance(resistanceForm, token);
+                const response = await createResistance(resistanceForm, token);
 
-                // if (!response.ok){
-                //     throw new Error('Something went wrong, Try Again');
+                if (!response.ok){
+                    throw new Error('Something went wrong, Try Again');
 
-                // }
+                }
                 setMessage("Resistance created successfully")
                 setTimeout(()=>{
                     setMessage("")
@@ -80,7 +80,7 @@ export default function Resistance(){
             <Header />
             <div className="d-flex flex-column align-items-center">
                 <h2 className='title text-center'>Add Exercise</h2>
-                {/* <form className='resistance-form d-flex flex-column' onSubmit={handleResistanceSubmit}>
+                <form className='resistance-form d-flex flex-column' onSubmit={handleResistanceSubmit}>
                     
                     <input type="text" name="name" id="name" placeholder="Bench Press"
                         value={resistanceForm.name} onChange={handleResistanceChange} />
@@ -96,7 +96,7 @@ export default function Resistance(){
                     <label >Date:</label>
                     <DatePicker selected={startDate} value={resistanceForm.date} onChange={handleDateChange} placeholderText="mm/dd/yyyy" />
                     <button className='submit-btn' type="submit" disabled={!validateForm(resistanceForm)} >Add</button>
-                </form> */}
+                </form>
                 <p className='message'>{message}</p>
             </div>
         </div>
