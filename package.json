@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
+    "date-fns": "^2.30.0",
+    "dotenv": "^16.0.3",
     "react-bootstrap": "^2.7.4",
     "react-confirm-alert": "^3.0.6",
     "react-datepicker": "^4.11.0"
