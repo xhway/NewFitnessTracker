@@ -48,7 +48,7 @@ const Login = (props) => {
           <div className="card-body">
             {data ? (
               <p>
-                Success!{' '}
+                Success! You may now head{' '}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
@@ -76,6 +76,10 @@ const Login = (props) => {
                 >
                   Submit
                 </button>
+                <p className ="link-btn">
+                  New to ConquerFitness{'  '}
+                  <Link to ="/Signup"> Create Account </Link>
+                </p>
               </form>
             )}
 
