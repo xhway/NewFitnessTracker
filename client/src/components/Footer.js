@@ -10,7 +10,7 @@ const Footer = () => (
             className="flex items-center text-dark uppercase no-underline"
           >
             <img
-              src="images/My-project-1-7.png"
+              src="/images/My-project-1-7.png"
               class="h-40 w-auto"
               alt="Fitness Logo"
             />
@@ -26,12 +26,12 @@ const Footer = () => (
             </h2>
             <ul class="ttext-black font-medium">
               <li class="mb-4">
-                <a href="#" class="hover:underline no-underline text-dark">
+                <a href="#top" class="hover:underline no-underline text-dark">
                   Fitness
                 </a>
               </li>
               <li>
-                <a href="#" class="hover:underline no-underline text-dark">
+                <a href="#top" class="hover:underline no-underline text-dark">
                   Tailwind CSS
                 </a>
               </li>
@@ -43,12 +43,12 @@ const Footer = () => (
             </h2>
             <ul class="ttext-black font-medium">
               <li class="mb-4">
-                <a href="#" class="hover:underline no-underline text-dark ">
+                <a href="#top" class="hover:underline no-underline text-dark ">
                   Github
                 </a>
               </li>
               <li>
-                <a href="#" class="hover:underline no-underline text-dark">
+                <a href="#top" class="hover:underline no-underline text-dark">
                   Discord
                 </a>
               </li>
@@ -60,12 +60,12 @@ const Footer = () => (
             </h2>
             <ul class="ttext-black font-medium">
               <li class="mb-4">
-                <a href="#" class="hover:underline no-underline text-dark">
+                <a href="#top" class="hover:underline no-underline text-dark">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" class="hover:underline no-underline text-dark">
+                <a href="#top" class="hover:underline no-underline text-dark">
                   Terms &amp; Conditions
                 </a>
               </li>
@@ -77,13 +77,13 @@ const Footer = () => (
       <div class="sm:flex sm:items-center sm:justify-between">
         <span class="text-sm text-gray-500 sm:text-center">
           © 2023{" "}
-          <a href="#" class="hover:underline no-underline text-dark">
+          <a href="#top" class="hover:underline no-underline text-dark">
             Fitness
           </a>
           . All Rights Reserved.
         </span>
         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-          <a href="#" class="text-gray-500 hover:text-gray-900 ">
+          <a href="#top" class="text-gray-500 hover:text-gray-900 ">
             <svg
               class="w-5 h-5"
               fill="currentColor"
@@ -98,7 +98,7 @@ const Footer = () => (
             </svg>
             <span class="sr-only">Facebook page</span>
           </a>
-          <a href="#" class="text-gray-500 hover:text-gray-900 ">
+          <a href="#top" class="text-gray-500 hover:text-gray-900 ">
             <svg
               class="w-5 h-5"
               fill="currentColor"
@@ -113,7 +113,7 @@ const Footer = () => (
             </svg>
             <span class="sr-only">Instagram page</span>
           </a>
-          <a href="#" class="text-gray-500 hover:text-gray-900 ">
+          <a href="#top" class="text-gray-500 hover:text-gray-900 ">
             <svg
               class="w-5 h-5"
               fill="currentColor"
@@ -124,7 +124,7 @@ const Footer = () => (
             </svg>
             <span class="sr-only">Twitter page</span>
           </a>
-          <a href="#" class="text-gray-500 hover:text-gray-900 ">
+          <a href="#top" class="text-gray-500 hover:text-gray-900 ">
             <svg
               class="w-5 h-5"
               fill="currentColor"
@@ -139,7 +139,7 @@ const Footer = () => (
             </svg>
             <span class="sr-only">GitHub account</span>
           </a>
-          <a href="#" class="text-gray-500 hover:text-gray-900 ">
+          <a href="#top" class="text-gray-500 hover:text-gray-900 ">
             <svg
               class="w-5 h-5"
               fill="currentColor"

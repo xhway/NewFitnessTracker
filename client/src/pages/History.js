@@ -73,8 +73,8 @@ export default function History() {
   return (
     <div className="history">
       <NewHeader />
-      <div className="d-flex flex-column align-items-center">
-        <h2 className="title">History</h2>
+      <div className="flex flex-col items-center my-16">
+        <h2 className="uppercase mb-5 font-bold">History</h2>
         {exerciseData.length ? (
           <div className="history-data">
             {/* map the exercise data  */}
@@ -86,7 +86,7 @@ export default function History() {
               }
               return (
                 <div className="history-div d-flex" key={exercise._id}>
-                  <div className="date d-flex align-items-center">
+                  <div className="date d-flex justify-center">
                     {dateToDisplay}
                   </div>
                   <Link
@@ -95,7 +95,7 @@ export default function History() {
                   >
                     {exercise.type === "cardio" ? (
                       <div className="history-card cardio-title d-flex">
-                        {/* <div className='d-flex align-items-center'><img alt="cardio" src={cardioIcon} className="history-icon" /></div> */}
+                        {/* <div className='d-flex justify-center'><img alt="cardio" src={cardioIcon} className="history-icon" /></div> */}
                         <div>
                           <p className="history-name">{exercise.name}</p>
                           <p className="history-index">
@@ -105,7 +105,7 @@ export default function History() {
                       </div>
                     ) : (
                       <div className="history-card resistance-title d-flex">
-                        {/* <div className='d-flex align-items-center'><img alt="resistance" src={resistanceIcon} className="history-icon" /></div> */}
+                        {/* <div className='d-flex justify-center'><img alt="resistance" src={resistanceIcon} className="history-icon" /></div> */}
                         <div>
                           <p className="history-name">{exercise.name}</p>
                           <p className="history-index">
@@ -129,10 +129,13 @@ export default function History() {
             ) : null}
           </div>
         ) : (
-          <div>
-            <h3 className="history-text">No exercise data yet...</h3>
-            <Link to="/exercise">
-              <button className="home-btn">Add Exercise</button>
+          <div className="flex flex-col">
+            <h3 className="mb-5">No exercise data yet...</h3>
+            <Link
+              to="/exercise"
+              className="mx-auto bg-black text-white py-2 px-3 no-underline uppercase"
+            >
+              Add Exercise
             </Link>
           </div>
         )}

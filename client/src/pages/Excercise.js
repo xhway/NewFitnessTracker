@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Auth from "../utils/auth";
 import NewHeader from "../components/NewHeader";
 import Footer from "../components/Footer";
-//import cardioIcon from "../assets/images/cardio.png"
-//import resistanceIcon from "../assets/images/resistance.png"
 
 export default function Exercise() {
   const loggedIn = Auth.loggedIn();
@@ -19,23 +17,21 @@ export default function Exercise() {
   return (
     <div>
       <NewHeader />
-      <div className="exercise d-flex flex-column align-items-center">
-        <h2 className="title">Add Exercise</h2>
-        <div>
+      <div className="flex flex-col items-center my-16">
+        <h2 className="uppercase mb-5 font-bold">Add Exercise</h2>
+
+        <div className="flex space-x-5">
           <button
-            className="cardio-btn d-flex flex-column  align-items-center justify-content-center"
+            className="bg-black text-white py-2 px-3 no-underline uppercase"
             onClick={() => navigate("/exercise/cardio")}
           >
-            {/* <img alt="cardio" src={cardioIcon} className="exercise-icon" /> */}
             Cardio
           </button>
-        </div>
-        <div>
+
           <button
-            className="resistance-btn d-flex flex-column  align-items-center justify-content-center"
+            className="bg-black text-white py-2 px-3 no-underline uppercase"
             onClick={() => navigate("/exercise/resistance")}
           >
-            {/* <img alt="resistance" src={resistanceIcon} className="exercise-icon" /> */}
             Resistance
           </button>
         </div>

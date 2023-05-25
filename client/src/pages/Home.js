@@ -1,28 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Auth from "../utils/auth";
+
 import NewHeader from "../components/NewHeader";
 import Footer from "../components/Footer";
+import Prices from "../components/Prices";
 
 import { Link } from "react-router-dom";
 
-import g from "./../js/webflow.js";
-
 export default function Home() {
   const loggedIn = Auth.loggedIn();
-
-  useEffect(() => {
-    const script = document.createElement("script");
-
-    script.src =
-      "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=646be386d6f97a2260d9b41b";
-    script.crossOrigin = "anonymous";
-    script.integrity = "sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=";
-
-    document.body.appendChild(script);
-
-    g(".text", 150, "easeOut");
-    g(".text---outline", 150, "easeOut");
-  }, []);
 
   return (
     <div className="body">
@@ -75,6 +61,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Prices />
       <Footer />
     </div>
   );

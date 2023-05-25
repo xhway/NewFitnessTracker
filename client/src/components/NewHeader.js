@@ -14,7 +14,7 @@ export default function Header() {
       >
         <Link className="my-auto" to="/">
           <img
-            src="images/My-project-1-7.png"
+            src="/images/My-project-1-7.png"
             loading="lazy"
             alt=""
             className="h-28 w-auto"
@@ -22,7 +22,7 @@ export default function Header() {
         </Link>
         <ul className="flex flex-wrap my-auto space-x-5 uppercase">
           <li>
-            <a href="#" className="nav-link">
+            <a href="#top" className="nav-link">
               FeatureS
             </a>
           </li>
@@ -37,7 +37,7 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <a href="#" className="text-black no-underline">
+            <a href="#top" className="text-black no-underline">
               About US
             </a>
           </li>

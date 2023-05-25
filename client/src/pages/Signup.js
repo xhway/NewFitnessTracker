@@ -124,11 +124,11 @@ const Signup = () => {
             />
             <span className="checkbox-label-2 w-form-label">
               By creating an account, I agree to this website&#x27;s{" "}
-              <a href="#" className="text-white mx-1">
+              <a href="#top" className="text-white mx-1">
                 privacy policy
               </a>
               and
-              <a href="#" className="text-white">
+              <a href="#top" className="text-white">
                 terms of service
               </a>
             </span>
