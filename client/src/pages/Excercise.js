@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Auth from "../utils/auth";
-import Header from "../components/Header";
+import NewHeader from "../components/NewHeader";
+import Footer from "../components/Footer";
 //import cardioIcon from "../assets/images/cardio.png"
 //import resistanceIcon from "../assets/images/resistance.png"
 
@@ -17,7 +18,7 @@ export default function Exercise() {
 
   return (
     <div>
-      <Header />
+      <NewHeader />
       <div className="exercise d-flex flex-column align-items-center">
         <h2 className="title">Add Exercise</h2>
         <div>
@@ -39,6 +40,7 @@ export default function Exercise() {
           </button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

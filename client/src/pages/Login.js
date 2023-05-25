@@ -3,7 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 
+import NewHeader from "../components/NewHeader";
+import Footer from "../components/Footer";
+
 import Auth from "../utils/auth";
+import ErrorAlert from "../components/ErrorAlert";
 
 const Login = (props) => {
   const navigate = useNavigate();
@@ -49,73 +53,67 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="w-users-userformpagewrap">
-        <div className="w-users-userloginformwrapper">
-          <form
-            data-wf-user-form-type="login"
-            data-wf-user-form-redirect="/"
-            onSubmit={handleFormSubmit}
-          >
-            <div className="w-users-userformheader">
-              <h2>Log in</h2>
-            </div>
-            <label htmlFor="Email">Email</label>
-            <input
-              type="email"
-              maxLength="256"
-              placeholder=""
-              name="email"
-              id="wf-log-in-email"
-              className="w-input"
-              autoComplete="username"
-              required=""
-              data-wf-user-form-input-type="email"
-              value={formState.email}
-              onChange={handleChange}
-            />
-            <label htmlFor="Password">Password</label>
-            <input
-              type="password"
-              maxLength="256"
-              placeholder=""
-              name="password"
-              id="wf-log-in-password"
-              className="w-input"
-              required=""
-              data-wf-user-form-input-type="password"
-              value={formState.password}
-              onChange={handleChange}
-            />
-            <input
-              type="submit"
-              value="Log In"
-              data-wait="Please wait..."
-              className="w-users-userformbutton w-button"
-            />
-            <div className="w-users-userformfooter">
-              <span className="text-span-2">Don&#x27;t have an account?</span>
-              <Link to="/signup" className="link-block-3 w-inline-block">
-                Sign Up
-              </Link>
-            </div>
-          </form>
-          {error && (
-            <div
-              data-wf-user-form-error="true"
-              className="w-users-userformerrorstate w-form-fail"
-            >
-              <div
-                className="user-form-error-msg"
-                wf-login-form-general-error-error="We&#x27;re having trouble logging you in. Please try again, or contact us if you continue to have problems."
-                wf-login-form-invalid-email_or_password-error="Invalid email or password. Please try again."
-              >
-                {error.message}
-              </div>
-            </div>
-          )}
-        </div>
+    <main className="flex flex-col">
+      <NewHeader />
+
+      {error && <ErrorAlert error={error} />}
+
+      <div className="bg-gray-900 w-2/3 lg:w-1/3 mx-auto mt-10">
+        <form
+          data-wf-user-form-type="login"
+          data-wf-user-form-redirect="/"
+          onSubmit={handleFormSubmit}
+          className="flex flex-col px-5 py-4 text-white"
+        >
+          <div className="mx-auto text-white uppercase mt-3">
+            <h2>Log in</h2>
+          </div>
+          <label htmlFor="Email" className="uppercase mb-2 text-lg">
+            Email
+          </label>
+          <input
+            type="email"
+            maxLength="256"
+            placeholder=""
+            name="email"
+            id="wf-log-in-email"
+            className="p-2 mb-4 text-black"
+            autoComplete="email"
+            required=""
+            data-wf-user-form-input-type="email"
+            value={formState.email}
+            onChange={handleChange}
+          />
+          <label htmlFor="Password" className="uppercase mb-2 text-lg">
+            Password
+          </label>
+          <input
+            type="password"
+            maxLength="256"
+            placeholder=""
+            name="password"
+            id="wf-log-in-password"
+            className="p-2 mb-4 text-black"
+            required=""
+            data-wf-user-form-input-type="password"
+            value={formState.password}
+            onChange={handleChange}
+          />
+          <input
+            type="submit"
+            value="Log In"
+            data-wait="Please wait..."
+            className="text-black bg-white cursor-pointer my-4 py-3 px-4 w-1/3 mx-auto font-bold uppercase"
+          />
+          <div className="text-center">
+            <span className="text-span-2">Don&#x27;t have an account?</span>
+            <Link to="/signup" className="mx-2 uppercase font-bold text-white">
+              Sign Up
+            </Link>
+          </div>
+        </form>
       </div>
+      <Footer />
     </main>
   );
 };
