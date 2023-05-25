@@ -22,7 +22,9 @@ class AuthService {
     // If token hasn't passed its expiration time, return `false`
     return false;
   }
-
+  getUserId(){
+    return "User"
+  }
   getToken() {
     return localStorage.getItem('id_token');
   }

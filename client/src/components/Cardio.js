@@ -5,13 +5,18 @@ import "react-datepicker/dist/react-datepicker.css";
 import Auth from "../utils/auth";
 import { createCardio } from '../utils/API';
 import Header from "./Header";
+import { useMutation} from '@apollo/client';
+import { ADD_CARDIO } from '../utils/mutations';
 
 export default function Cardio() {
+    console.log(new Date())
+    //const [ addCardio, { error } ] = useQuery(ADD_CARDIO);
     const [cardioForm, setCardioForm] = useState({
         name: "",
         distance: "",
         duration: "",
-        date: ""
+        date: "",
+        userId: ""
     })
     const [startDate, setStartDate] = useState(new Date());
     const [message, setMessage] = useState("")
@@ -42,8 +47,21 @@ export default function Cardio() {
 
         // get user id 
         const userId = Auth.getUserId();
-
-        // cardio submit
+        // try {
+            // Execute mutation and pass in defined parameter data as variables
+        //     const { data } = await addCardio({
+        //       variables: { name: "",
+        //       distance: "",
+        //       duration: "",
+        //       date:""}
+        //     });
+      
+        //     window.location.reload();
+        //   } catch (err) {
+        //     console.error(err);
+        //   }
+        // };
+        //cardio submit
         if (validateForm(cardioForm)) {
             try {
                 // add userid to cardio form
