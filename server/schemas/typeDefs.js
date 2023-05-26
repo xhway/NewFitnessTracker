@@ -11,17 +11,17 @@ const typeDefs = gql`
   type Cardio  {
     _id: ID
     name: String
-    distance: Number
-    duration: Number
+    distance: Int
+    duration: Int
     date: String
   }
 
   type Resistance {
     _id: ID
     name: String
-    weight: Number
-    sets: Number
-    reps: Number
+    weight: Int
+    sets: Int
+    reps: Int
     date: String
   }
 
@@ -33,9 +33,6 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-   exercise(username: String): [Cardio]
-   Cardio(cardioId: ID!): Cardio
-   Resistance(resistanceID!): Resistance
     me: User
   }
 
@@ -45,7 +42,7 @@ const typeDefs = gql`
     addCardio(cardioForm: String!): Cardio
     addResistance(resistanceForm: String!): Resistance
     removeCardio(cardioId: ID!): Cardio
-    removeResistance(resistancetId: ID!): Resistance
+    removeResistance(resistanceId: ID!): Resistance
   }
 `;
 
