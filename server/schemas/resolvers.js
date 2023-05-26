@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Thought, Resistance } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -65,18 +65,16 @@ const resolvers = {
     },
     addResistance: async (parent,args, context) => {
       if (context.user) {
-        return Resistance.findOneAndUpdate(
-          { _id: thoughtId },
-          {
-            $addToSet: {
-              comments: { commentText, commentAuthor: context.user.username },
-            },
-          },
-          {
-            new: true,
-            runValidators: true,
-          }
+        const resistance = await Resistance.create({
+          args
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { resistance: resistance._id } }
         );
+
+        return resistance;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
