@@ -10,16 +10,19 @@ const typeDefs = gql`
 
   type Cardio  {
     _id: ID
-    cardioText: String
-    cardioAuthor: String
-    createdAt: String
+    name: String
+    distance: Number
+    duration: Number
+    date: String
   }
 
   type Resistance {
     _id: ID
-    resistanceText: String
-    resistanceAuthor: String
-    createdAt: String
+    name: String
+    weight: Number
+    sets: Number
+    reps: Number
+    date: String
   }
 
   type Auth {
@@ -31,17 +34,18 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
    exercise(username: String): [Cardio]
-   cardio(CardioId: ID!): Cardio
+   Cardio(cardioId: ID!): Cardio
+   Resistance(resistanceID!): Resistance
     me: User
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addCardio(thoughtText: String!): Cardio
-    addResistance(thoughtId: ID!, commentText: String!): Resistance
-    removeCardio(thoughtId: ID!): Cardio
-    removeResistance(thoughtId: ID!, commentId: ID!): Resistance
+    addCardio(cardioForm: String!): Cardio
+    addResistance(resistanceForm: String!): Resistance
+    removeCardio(cardioId: ID!): Cardio
+    removeResistance(resistancetId: ID!): Resistance
   }
 `;
 
