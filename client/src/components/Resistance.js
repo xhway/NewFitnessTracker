@@ -4,13 +4,16 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Auth from "../utils/auth";
 import { createResistance } from "../utils/API";
-import Header from "./Header";
-//import resistanceIcon from "../assets/images/..."
-
+//import Header from "./Header";
+import {useQuery} from "@apollo/client";
+import {QUERY_ME} from "../utils/queries";
 import NewHeader from "../components/NewHeader";
 import Footer from "../components/Footer";
 
 export default function Resistance() {
+  
+  const {loading, data} = useQuery(QUERY_ME);
+  console.log(data);
   const [resistanceForm, setResistanceForm] = useState({
     name: "",
     weight: "",
